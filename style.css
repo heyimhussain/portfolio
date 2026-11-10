@@ -35,7 +35,7 @@ i { font-family: var(--serif); font-style: italic; font-weight: 400; }
 .hud span:first-child::before { content: ""; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--teal); margin-right: 10px; }
 
 .name {
-  position: absolute; right: var(--pad); top: 50%; transform: translateY(-50%); text-align: right;
+  position: absolute; left: var(--pad); top: 50%; transform: translateY(-50%);
   font-weight: 800; letter-spacing: -.06em; line-height: .82;
   font-size: clamp(56px, 10.5vw, 200px); pointer-events: none; user-select: none;
 }
@@ -52,7 +52,7 @@ i { font-family: var(--serif); font-style: italic; font-weight: 400; }
   transition: transform .25s, box-shadow .25s; z-index: 5;
   animation: drop .9s cubic-bezier(.2,.8,.2,1) both;
 }
-.t1 { --x: 5%; --y: 40%; --r: -4deg; } .t2 { --x: 7%; --y: 13%; --r: 3deg; } .t3 { --x: 19%; --y: 58%; --r: -2deg; } .t4 { --x: 5%; --y: 80%; --r: 4deg; }
+.t1 { --x: 64%; --y: 42%; --r: -4deg; } .t2 { --x: 76%; --y: 12%; --r: 3deg; } .t3 { --x: 78%; --y: 60%; --r: -2deg; } .t4 { --x: 63%; --y: 80%; --r: 4deg; }
 .t1 { animation-delay: .4s } .t2 { animation-delay: .5s } .t3 { animation-delay: .6s } .t4 { animation-delay: .7s }
 @keyframes drop { from { opacity: 0; translate: 0 -30px; } }
 .tile:hover { transform: rotate(0deg) scale(1.03); }
