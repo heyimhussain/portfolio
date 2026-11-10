@@ -14,9 +14,9 @@
 <!-- ===== HERO: a draggable canvas (a nod to Atless) ===== -->
 <section class="canvas" id="canvas">
   <div class="hud mono">
-    <span>HSH / PORTFOLIO</span>
-    <span class="hide-sm">drag the tiles ✦ scroll for more</span>
-    <span id="coords">x 0 · y 0</span>
+    <span>Hussain Shah Hashmi</span>
+    <span class="hide-sm">Drag the notes around</span>
+    <span id="coords">x 0, y 0</span>
   </div>
 
   <h1 class="name">
@@ -24,21 +24,21 @@
     <span class="row"><i>Shah</i> Hashmi</span>
   </h1>
 
-  <div class="tile t1" data-drag style="--x:6%;--y:62%;--r:-4deg">
-    <span class="mono tag">● status</span>
+  <div class="tile t1" data-drag>
+    <span class="mono tag">Status</span>
     <p>Seeking a <b>Computing Science Co-op</b> for upcoming terms.</p>
   </div>
-  <div class="tile t2 dark" data-drag style="--x:66%;--y:12%;--r:3deg">
-    <span class="mono tag">now</span>
+  <div class="tile t2 dark" data-drag>
+    <span class="mono tag">Now</span>
     <p>3rd-year CS @ <b>SFU</b><br>Minor in Interactive Arts &amp; Tech</p>
   </div>
-  <div class="tile t3 teal" data-drag style="--x:72%;--y:58%;--r:-2deg">
-    <span class="mono tag">impact</span>
+  <div class="tile t3 teal" data-drag>
+    <span class="mono tag">Impact</span>
     <p class="stat">$450K+</p>
     <p>raised at the 2026 TCF Vancouver Gala</p>
   </div>
-  <div class="tile t4 note" data-drag style="--x:40%;--y:76%;--r:5deg">
-    <p class="mono">// based in Coquitlam, BC<br>// speaks EN · UR · HI · PA</p>
+  <div class="tile t4 note" data-drag>
+    <p class="mono">Based in Coquitlam, BC<br>Speaks English, Urdu, Hindi, Punjabi</p>
   </div>
 </section>
 
@@ -50,8 +50,8 @@
 
 <main>
   <!-- ABOUT -->
-  <section class="about reveal">
-    <p class="mono idx">(01) About</p>
+  <section class="about">
+    <p class="idx">About</p>
     <p class="statement">
       I build things that <i>feel</i> good to use — infinite canvases, real-time multiplayer games,
       interfaces that don't lag. Off the keyboard, I <span class="hl">founded a non-profit chapter</span>
@@ -60,12 +60,12 @@
   </section>
 
   <!-- PROJECTS -->
-  <section class="reveal">
-    <p class="mono idx">(02) Selected work</p>
+  <section>
+    <p class="idx">Selected work</p>
 
     <article class="project">
       <div class="p-head">
-        <span class="mono p-num">A—</span>
+        
         <h2>Atless</h2>
         <span class="mono p-badge">StormHacks 2026</span>
       </div>
@@ -76,14 +76,14 @@
           <li><b>Gemini API</b> for multi-modal canvas summaries; <b>ElevenLabs</b> for speech-to-text and TTS.</li>
           <li>Instant editable share links via <b>Cloudflare Workers + Postgres (Hyperdrive)</b>.</li>
         </ul>
-        <p class="mono stack">React · Vite · Tailwind · PostgreSQL · Cloudflare</p>
+        <p class="mono stack">React, Vite, Tailwind, PostgreSQL, Cloudflare</p>
         <a class="link" href="https://github.com/heyimhussain" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </article>
 
     <article class="project">
       <div class="p-head">
-        <span class="mono p-num">B—</span>
+        
         <h2>Spyfall</h2>
         <span class="mono p-badge">30+ players</span>
       </div>
@@ -94,32 +94,32 @@
           <li>QR-code lobby invites and a projector dashboard mode.</li>
           <li>Glassmorphic, mobile-first UI with fluid type and local-storage persistence.</li>
         </ul>
-        <p class="mono stack">JavaScript · PeerJS · WebRTC · CSS</p>
+        <p class="mono stack">JavaScript, PeerJS, WebRTC, CSS</p>
         <a class="link" href="https://github.com/heyimhussain" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </article>
   </section>
 
   <!-- EXPERIENCE -->
-  <section class="reveal">
-    <p class="mono idx">(03) Experience</p>
+  <section>
+    <p class="idx">Experience</p>
     <div class="jobs">
       <div class="job">
         <span class="mono when">Oct 2025 — Now</span>
         <h3>Founder &amp; President</h3>
-        <p class="org">The Citizens Foundation SFU · Burnaby</p>
+        <p class="org">The Citizens Foundation SFU, Burnaby</p>
         <p>Established and lead SFU's TCF chapter; run executive operations for fundraisers and awareness initiatives. Helped raise <b>$450,000+</b> at the 2026 Vancouver Gala.</p>
       </div>
       <div class="job">
         <span class="mono when">Jun — Sep 2026</span>
         <h3>Fundraiser</h3>
-        <p class="org">Public Outreach Fundraising · Vancouver</p>
+        <p class="org">Public Outreach Fundraising, Vancouver</p>
         <p>Raised <b>$1,200+</b> in monthly donations for Save the Children through face-to-face outreach.</p>
       </div>
       <div class="job">
         <span class="mono when">Jul — Nov 2025</span>
         <h3>Sales Associate</h3>
-        <p class="org">MINISO Canada &amp; Bluenotes · Burnaby</p>
+        <p class="org">MINISO Canada &amp; Bluenotes, Burnaby</p>
         <p>Handled transactions, helped customers and kept stores presentation-ready.</p>
       </div>
       <div class="job">
@@ -132,23 +132,23 @@
   </section>
 
   <!-- EDUCATION + SKILLS -->
-  <section class="split reveal">
+  <section class="split">
     <div>
-      <p class="mono idx">(04) Education</p>
+      <p class="idx">Education</p>
       <div class="edu">
         <h3>Simon Fraser University</h3>
         <p>B.A.Sc. Computing Science<br>Minor, Interactive Arts &amp; Technology</p>
         <span class="mono when">Sep 2024 — Present</span>
-        <p class="muted small">Data Structures · Software Engineering · Systems Programming</p>
+        <p class="muted small">Data Structures, Software Engineering, Systems Programming</p>
       </div>
       <div class="edu">
         <h3>Beaconhouse School System</h3>
-        <p>Cambridge A Levels — High Achiever</p>
+        <p>Cambridge A Levels, High Achiever</p>
         <span class="mono when">2022 — 2024</span>
       </div>
     </div>
     <div>
-      <p class="mono idx">(05) Toolkit</p>
+      <p class="idx">Toolkit</p>
       <dl class="kit">
         <dt>Languages</dt><dd>Python, C/C++, Java, JavaScript, SQL, HTML</dd>
         <dt>Frameworks</dt><dd>React, Vite, Node.js, Tailwind CSS, PeerJS</dd>
@@ -161,7 +161,7 @@
 
 <!-- CONTACT -->
 <footer class="contact">
-  <p class="mono idx">(06) Say hi</p>
+  <p class="idx">Say hi</p>
   <a class="mail" href="mailto:hussainshahhashmi5@gmail.com">hussainshahhashmi5<span>@gmail.com</span></a>
   <a class="mail sm" href="mailto:hsh7@sfu.ca">hsh7<span>@sfu.ca</span></a>
   <div class="socials mono">
