@@ -3,82 +3,174 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hussain Shah Hashmi — Portfolio</title>
-<meta name="description" content="Portfolio of Hussain Shah Hashmi — Computing Science student at SFU and full-stack developer.">
+<title>Hussain Shah Hashmi</title>
+<meta name="description" content="Hussain Shah Hashmi — Computing Science student at SFU, full-stack developer, founder of TCF SFU.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="cursor-glow" aria-hidden="true"></div>
 
-<header class="nav">
-  <a href="#top" class="logo">HSH<span>.</span></a>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact" class="btn-sm">Contact</a>
-  </nav>
-</header>
+<!-- ===== HERO: a draggable canvas (a nod to Atless) ===== -->
+<section class="canvas" id="canvas">
+  <div class="hud mono">
+    <span>HSH / PORTFOLIO</span>
+    <span class="hide-sm">drag the tiles ✦ scroll for more</span>
+    <span id="coords">x 0 · y 0</span>
+  </div>
 
-<main id="top">
-  <!-- HERO -->
-  <section class="hero">
-    <p class="mono kicker"><span class="dot"></span> Seeking Co-op · Coquitlam, BC</p>
-    <h1>Hussain<br>Shah <em>Hashmi</em></h1>
-    <p class="lead" id="tagline">Building clean, thoughtful digital experiences.</p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn">View work →</a>
-      <a href="https://www.linkedin.com/in/hussainshahhashmi/" target="_blank" rel="noopener" class="btn ghost">LinkedIn ↗</a>
-    </div>
-    <div class="marquee" aria-hidden="true"><div class="track" id="marquee"></div></div>
-  </section>
+  <h1 class="name">
+    <span class="row">Hussain</span>
+    <span class="row"><i>Shah</i> Hashmi</span>
+  </h1>
 
+  <div class="tile t1" data-drag style="--x:6%;--y:62%;--r:-4deg">
+    <span class="mono tag">● status</span>
+    <p>Seeking a <b>Computing Science Co-op</b> for upcoming terms.</p>
+  </div>
+  <div class="tile t2 dark" data-drag style="--x:66%;--y:12%;--r:3deg">
+    <span class="mono tag">now</span>
+    <p>3rd-year CS @ <b>SFU</b><br>Minor in Interactive Arts &amp; Tech</p>
+  </div>
+  <div class="tile t3 teal" data-drag style="--x:72%;--y:58%;--r:-2deg">
+    <span class="mono tag">impact</span>
+    <p class="stat">$450K+</p>
+    <p>raised at the 2026 TCF Vancouver Gala</p>
+  </div>
+  <div class="tile t4 note" data-drag style="--x:40%;--y:76%;--r:5deg">
+    <p class="mono">// based in Coquitlam, BC<br>// speaks EN · UR · HI · PA</p>
+  </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker" aria-hidden="true"><div>
+  <span>React</span>✦<span>Vite</span>✦<span>Tailwind</span>✦<span>PostgreSQL</span>✦<span>PeerJS / WebRTC</span>✦<span>Python</span>✦<span>C / C++</span>✦<span>Java</span>✦<span>Node.js</span>✦<span>Docker</span>✦<span>Godot</span>✦
+  <span>React</span>✦<span>Vite</span>✦<span>Tailwind</span>✦<span>PostgreSQL</span>✦<span>PeerJS / WebRTC</span>✦<span>Python</span>✦<span>C / C++</span>✦<span>Java</span>✦<span>Node.js</span>✦<span>Docker</span>✦<span>Godot</span>✦
+</div></div>
+
+<main>
   <!-- ABOUT -->
-  <section id="about" class="section">
-    <h2 class="label"><span class="mono">01</span> About</h2>
-    <div class="about-grid">
-      <p class="big" id="about-text"></p>
-      <ul class="stats" id="stats"></ul>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="section">
-    <h2 class="label"><span class="mono">02</span> Experience</h2>
-    <ol class="timeline" id="experience-list"></ol>
+  <section class="about reveal">
+    <p class="mono idx">(01) About</p>
+    <p class="statement">
+      I build things that <i>feel</i> good to use — infinite canvases, real-time multiplayer games,
+      interfaces that don't lag. Off the keyboard, I <span class="hl">founded a non-profit chapter</span>
+      and learned to pitch a mission to strangers on the street.
+    </p>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="section">
-    <h2 class="label"><span class="mono">03</span> Projects</h2>
-    <div class="cards" id="project-list"></div>
+  <section class="reveal">
+    <p class="mono idx">(02) Selected work</p>
+
+    <article class="project">
+      <div class="p-head">
+        <span class="mono p-num">A—</span>
+        <h2>Atless</h2>
+        <span class="mono p-badge">StormHacks 2026</span>
+      </div>
+      <div class="p-body">
+        <p>An infinite spatial canvas for organizing rich media, notes and voice recordings on a pannable, zoomable, persistent board.</p>
+        <ul>
+          <li>Custom rendering layers keep <b>500+ interactive tiles</b> smooth during zoom &amp; pan.</li>
+          <li><b>Gemini API</b> for multi-modal canvas summaries; <b>ElevenLabs</b> for speech-to-text and TTS.</li>
+          <li>Instant editable share links via <b>Cloudflare Workers + Postgres (Hyperdrive)</b>.</li>
+        </ul>
+        <p class="mono stack">React · Vite · Tailwind · PostgreSQL · Cloudflare</p>
+        <a class="link" href="https://github.com/heyimhussain" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="p-head">
+        <span class="mono p-num">B—</span>
+        <h2>Spyfall</h2>
+        <span class="mono p-badge">30+ players</span>
+      </div>
+      <div class="p-body">
+        <p>A real-time multiplayer social deduction game in vanilla JavaScript — 64+ locations, ~600 roles, custom decks and offline pass-and-play.</p>
+        <ul>
+          <li><b>Serverless P2P</b> networking with PeerJS and WebRTC/STUN/TURN fallback.</li>
+          <li>QR-code lobby invites and a projector dashboard mode.</li>
+          <li>Glassmorphic, mobile-first UI with fluid type and local-storage persistence.</li>
+        </ul>
+        <p class="mono stack">JavaScript · PeerJS · WebRTC · CSS</p>
+        <a class="link" href="https://github.com/heyimhussain" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </article>
   </section>
 
-  <!-- SKILLS / EDUCATION -->
-  <section class="section two-col">
-    <div>
-      <h2 class="label"><span class="mono">04</span> Skills</h2>
-      <ul class="chips" id="skills"></ul>
-    </div>
-    <div>
-      <h2 class="label"><span class="mono">05</span> Education</h2>
-      <ul class="edu" id="education"></ul>
+  <!-- EXPERIENCE -->
+  <section class="reveal">
+    <p class="mono idx">(03) Experience</p>
+    <div class="jobs">
+      <div class="job">
+        <span class="mono when">Oct 2025 — Now</span>
+        <h3>Founder &amp; President</h3>
+        <p class="org">The Citizens Foundation SFU · Burnaby</p>
+        <p>Established and lead SFU's TCF chapter; run executive operations for fundraisers and awareness initiatives. Helped raise <b>$450,000+</b> at the 2026 Vancouver Gala.</p>
+      </div>
+      <div class="job">
+        <span class="mono when">Jun — Sep 2026</span>
+        <h3>Fundraiser</h3>
+        <p class="org">Public Outreach Fundraising · Vancouver</p>
+        <p>Raised <b>$1,200+</b> in monthly donations for Save the Children through face-to-face outreach.</p>
+      </div>
+      <div class="job">
+        <span class="mono when">Jul — Nov 2025</span>
+        <h3>Sales Associate</h3>
+        <p class="org">MINISO Canada &amp; Bluenotes · Burnaby</p>
+        <p>Handled transactions, helped customers and kept stores presentation-ready.</p>
+      </div>
+      <div class="job">
+        <span class="mono when">May — Jul 2024</span>
+        <h3>Administrative Assistant</h3>
+        <p class="org">Noranex Consulting</p>
+        <p>Administrative support, document handling and scheduling for consultants and staff.</p>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section contact">
-    <p class="mono kicker">06 — Contact</p>
-    <h2 class="huge">Let's build<br>something <em>great.</em></h2>
-    <div class="hero-cta" id="contact-links"></div>
+  <!-- EDUCATION + SKILLS -->
+  <section class="split reveal">
+    <div>
+      <p class="mono idx">(04) Education</p>
+      <div class="edu">
+        <h3>Simon Fraser University</h3>
+        <p>B.A.Sc. Computing Science<br>Minor, Interactive Arts &amp; Technology</p>
+        <span class="mono when">Sep 2024 — Present</span>
+        <p class="muted small">Data Structures · Software Engineering · Systems Programming</p>
+      </div>
+      <div class="edu">
+        <h3>Beaconhouse School System</h3>
+        <p>Cambridge A Levels — High Achiever</p>
+        <span class="mono when">2022 — 2024</span>
+      </div>
+    </div>
+    <div>
+      <p class="mono idx">(05) Toolkit</p>
+      <dl class="kit">
+        <dt>Languages</dt><dd>Python, C/C++, Java, JavaScript, SQL, HTML</dd>
+        <dt>Frameworks</dt><dd>React, Vite, Node.js, Tailwind CSS, PeerJS</dd>
+        <dt>Tools</dt><dd>Git, Docker, Godot, Google AI Studio, VS Code</dd>
+        <dt>People</dt><dd>Leadership, communication, initiative</dd>
+      </dl>
+    </div>
   </section>
 </main>
 
-<footer class="foot mono">© <span id="year"></span> Hussain Shah Hashmi</footer>
+<!-- CONTACT -->
+<footer class="contact">
+  <p class="mono idx">(06) Say hi</p>
+  <a class="mail" href="mailto:hussainshahhashmi5@gmail.com">hussainshahhashmi5<span>@gmail.com</span></a>
+  <a class="mail sm" href="mailto:hsh7@sfu.ca">hsh7<span>@sfu.ca</span></a>
+  <div class="socials mono">
+    <a href="https://www.linkedin.com/in/hussainshahhashmi/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    <a href="https://github.com/heyimhussain" target="_blank" rel="noopener">GitHub ↗</a>
+    <span>© 2026 Hussain Shah Hashmi</span>
+  </div>
+</footer>
 
-<script src="data.js"></script>
 <script src="main.js"></script>
 </body>
 </html>

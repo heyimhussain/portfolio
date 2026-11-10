@@ -1,47 +1,35 @@
-(() => {
-  const d = window.PORTFOLIO;
-  const $ = (id) => document.getElementById(id);
-  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+// Draggable hero tiles
+const canvas = document.getElementById("canvas");
+const coords = document.getElementById("coords");
+let top = 10;
 
-  $("tagline").textContent = d.tagline;
-  $("about-text").textContent = d.about;
-  $("stats").innerHTML = d.stats.map((s) => `<li><strong>${esc(s.value)}</strong><span>${esc(s.label)}</span></li>`).join("");
-  const m = d.marquee.map((t) => `<span>${esc(t)}</span><i>✦</i>`).join("");
-  $("marquee").innerHTML = m + m;
-
-  $("experience-list").innerHTML = d.experience.map((e) => `
-    <li class="reveal">
-      <span class="mono period">${esc(e.period)}</span>
-      <div>
-        <h3>${esc(e.role)} <span class="at">@ ${esc(e.company)}</span></h3>
-        <ul>${e.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
-      </div>
-    </li>`).join("");
-
-  $("project-list").innerHTML = d.projects.map((p, i) => `
-    <a class="card reveal" href="${esc(p.link)}" target="_blank" rel="noopener">
-      <span class="mono num">0${i + 1}</span>
-      <h3>${esc(p.title)} <span class="arrow">↗</span></h3>
-      <p>${esc(p.desc)}</p>
-      <div class="tags">${p.tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>
-    </a>`).join("");
-
-  $("skills").innerHTML = d.skills.map((s) => `<li>${esc(s)}</li>`).join("");
-  $("education").innerHTML = d.education.map((e) => `
-    <li><h3>${esc(e.degree)}</h3><p>${esc(e.school)}</p><span class="mono">${esc(e.period)}</span></li>`).join("");
-  $("contact-links").innerHTML = d.contact.map((c, i) =>
-    `<a class="btn${i ? " ghost" : ""}" href="${esc(c.href)}" target="_blank" rel="noopener">${esc(c.label)} ↗</a>`).join("");
-  $("year").textContent = new Date().getFullYear();
-
-  // reveal on scroll
-  const io = new IntersectionObserver((es) => es.forEach((e) => {
-    if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-  }), { threshold: 0.15 });
-  document.querySelectorAll(".reveal, .section").forEach((el) => io.observe(el));
-
-  // cursor glow
-  const g = document.querySelector(".cursor-glow");
-  window.addEventListener("pointermove", (e) => {
-    g.style.transform = `translate(${e.clientX - 300}px, ${e.clientY - 300}px)`;
+document.querySelectorAll("[data-drag]").forEach((tile) => {
+  tile.addEventListener("pointerdown", (e) => {
+    tile.setPointerCapture(e.pointerId);
+    tile.style.zIndex = ++top;
+    tile.classList.add("grab");
+    const r = tile.getBoundingClientRect(), c = canvas.getBoundingClientRect();
+    const ox = e.clientX - r.left, oy = e.clientY - r.top;
+    const move = (ev) => {
+      tile.style.setProperty("--x", ev.clientX - c.left - ox + "px");
+      tile.style.setProperty("--y", ev.clientY - c.top - oy + "px");
+    };
+    const up = () => {
+      tile.classList.remove("grab");
+      tile.removeEventListener("pointermove", move);
+    };
+    tile.addEventListener("pointermove", move);
+    tile.addEventListener("pointerup", up, { once: true });
   });
-})();
+});
+
+canvas.addEventListener("pointermove", (e) => {
+  const c = canvas.getBoundingClientRect();
+  coords.textContent = `x ${Math.round(e.clientX - c.left)} · y ${Math.round(e.clientY - c.top)}`;
+});
+
+// Reveal on scroll
+const io = new IntersectionObserver((es) => es.forEach((e) => {
+  if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+}), { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
