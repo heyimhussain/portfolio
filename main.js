@@ -1,4 +1,16 @@
 (() => {
+  // Ticker: repeat the skills until one set is wider than the screen, then
+  // run two identical sets so the loop never shows a gap.
+  const track = document.querySelector(".tick-track");
+  if (track) {
+    const set = track.querySelector(".tick-set");
+    const unit = set.innerHTML;
+    let guard = 0;
+    while (set.scrollWidth < Math.max(innerWidth, screen.width || 0) + 200 && guard++ < 10) set.insertAdjacentHTML("beforeend", unit);
+    track.appendChild(set.cloneNode(true));
+    track.style.setProperty("--tick-dur", `${Math.round(set.scrollWidth / 60)}s`);
+  }
+
   // Draggable hero tiles
   const canvas = document.getElementById("home");
   let z = 10;

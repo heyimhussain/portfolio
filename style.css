@@ -67,7 +67,9 @@ a:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
 
 /* ===== TICKER ===== */
 .ticker { overflow: hidden; background: var(--teal); color: #032b27; padding: 12px 0; font-weight: 600; font-size: 18px; }
-.ticker div { display: flex; gap: 22px; width: max-content; animation: tick 35s linear infinite; }
+.tick-track { display: flex; width: max-content; animation: tick var(--tick-dur, 35s) linear infinite; }
+.tick-set { display: flex; flex: none; gap: 22px; padding-right: 22px; }
+.tick-set i { font-style: normal; }
 @keyframes tick { to { transform: translateX(-50%); } }
 
 /* ===== SECTIONS ===== */
