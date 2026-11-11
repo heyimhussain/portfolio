@@ -113,10 +113,13 @@ main > section { padding: 110px 0; border-bottom: 1px solid var(--line); }
 .mail span { display: inline-block; }
 .mail span { font-family: var(--display); font-weight: 400; color: var(--muted); letter-spacing: -.02em; }
 .mail:hover { color: var(--teal); }
-.mail.sm { font-size: clamp(22px, 3vw, 40px); margin-top: 14px; }
+.mail + .mail { margin-top: 14px; }
+.profiles { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; }
+.btn-ghost { border: 1px solid #3a3a3a; padding: 10px 20px; border-radius: 999px; transition: border-color .25s, color .25s; }
+.btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
 .socials { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 90px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); }
 .socials a:hover { color: var(--teal); }
-.socials .based { margin-left: auto; }
+.socials { justify-content: space-between; }
 .socials .based::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--teal); margin-right: 8px; vertical-align: middle; }
 
 @media (max-width: 800px) {
@@ -128,7 +131,6 @@ main > section { padding: 110px 0; border-bottom: 1px solid var(--line); }
   .t2 { --x: 46%; --y: 66%; }
   .t3 { --x: 6%; --y: 74%; }
   .project, .split,   .p-body { padding-top: 0; }
-  .socials .based { margin-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
