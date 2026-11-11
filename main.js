@@ -27,6 +27,26 @@
     });
   });
 
+  // Experience board: pick a job on the left, show it on the right
+  const tabs = [...document.querySelectorAll(".jl")];
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => {
+      tabs.forEach((o) => {
+        const on = o === t;
+        o.classList.toggle("on", on);
+        o.setAttribute("aria-selected", on);
+        document.getElementById(o.getAttribute("aria-controls")).hidden = !on;
+      });
+    });
+    t.addEventListener("keydown", (e) => {
+      const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (!d) return;
+      e.preventDefault();
+      const n = tabs[(i + d + tabs.length) % tabs.length];
+      n.focus(); n.click();
+    });
+  });
+
   // Highlight the pill button for the section in view
   const links = [...document.querySelectorAll(".pill a")];
   const targets = links.map((l) => document.querySelector(l.getAttribute("href")));
