@@ -1,6 +1,6 @@
 (() => {
   // Draggable hero tiles
-  const canvas = document.getElementById("canvas");
+  const canvas = document.getElementById("home");
   let z = 10;
 
   document.querySelectorAll("[data-drag]").forEach((tile) => {

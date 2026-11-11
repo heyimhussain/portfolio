@@ -237,3 +237,9 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 .lw { display: inline-block; min-height: 1.3em; unicode-bidi: plaintext; }
 .lw.typing::after { content: ""; display: inline-block; width: 2px; height: 1em; margin-left: 2px; vertical-align: -0.12em; background: var(--teal); animation: caret .6s steps(1) infinite; }
 @keyframes caret { 50% { opacity: 0; } }
+
+/* profile buttons */
+.soc { display: inline-flex; align-items: center; gap: 10px; padding: 11px 20px 11px 16px; border-radius: 999px;
+  background: #161616; border: 1px solid #2a2a2a; color: var(--ink); font-weight: 500; transition: border-color .25s, color .25s, background .25s; }
+.soc svg { width: 18px; height: 18px; fill: currentColor; }
+.soc:hover { border-color: var(--teal); color: var(--teal); background: #10201e; }
