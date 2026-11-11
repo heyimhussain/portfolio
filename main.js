@@ -140,22 +140,31 @@
     li.addEventListener("mouseleave", () => morph(roman));
   });
 
-  // Atless ship: 3D tilt following the cursor
-  document.querySelectorAll(".p-head").forEach((head) => {
-    const ship = head.querySelector(".p-ship");
-    if (!ship) return;
-    head.addEventListener("pointermove", (e) => {
-      const r = head.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
+  // Atless ship: 3D tilt that follows the cursor anywhere over the project row
+  document.querySelectorAll(".p-ship").forEach((ship) => {
+    const area = ship.closest(".project");
+    const head = ship.closest(".p-head");
+    const t = { x: 0, y: 0 }, c = { x: 0, y: 0 };
+    let raf = 0;
+    const tick = () => {
+      c.x += (t.x - c.x) * 0.12;
+      c.y += (t.y - c.y) * 0.12;
+      ship.style.setProperty("--ry", `${c.x * 36}deg`);
+      ship.style.setProperty("--rx", `${-c.y * 28}deg`);
+      raf = Math.abs(t.x - c.x) + Math.abs(t.y - c.y) > 0.001 ? requestAnimationFrame(tick) : 0;
+    };
+    const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
+    area.addEventListener("pointermove", (e) => {
+      const r = ship.getBoundingClientRect();
+      t.x = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
+      t.y = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height / 2)) / (r.height / 2)));
       head.classList.add("tilting");
-      ship.style.setProperty("--ry", `${x * 40}deg`);
-      ship.style.setProperty("--rx", `${-y * 30}deg`);
+      kick();
     });
-    head.addEventListener("pointerleave", () => {
+    area.addEventListener("pointerleave", () => {
+      t.x = 0; t.y = 0;
       head.classList.remove("tilting");
-      ship.style.setProperty("--ry", "0deg");
-      ship.style.setProperty("--rx", "0deg");
+      kick();
     });
   });
 })();
