@@ -244,3 +244,7 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 .soc svg { width: 18px; height: 18px; fill: currentColor; }
 .soc:hover { border-color: var(--teal); color: var(--teal); background: #10201e; }
 .langs-head { margin-top: 64px; }
+
+.logo { position: relative; overflow: hidden; }
+.logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; padding: 4px; }
+.logo.sm img { padding: 3px; }
