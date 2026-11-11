@@ -305,3 +305,4 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 .p-head.tilting .p-ship { opacity: .16; }
 .p-ship .wave { fill: none; stroke: var(--ink); stroke-width: 3.5; stroke-linecap: round; }
 .project:has(.p-ship) { overflow: hidden; }
+.idx { text-transform: uppercase; letter-spacing: .06em; }
