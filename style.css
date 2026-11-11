@@ -243,3 +243,4 @@ section[id], footer[id] { scroll-margin-top: 80px; }
   background: #161616; border: 1px solid #2a2a2a; color: var(--ink); font-weight: 500; transition: border-color .25s, color .25s, background .25s; }
 .soc svg { width: 18px; height: 18px; fill: currentColor; }
 .soc:hover { border-color: var(--teal); color: var(--teal); background: #10201e; }
+.langs-head { margin-top: 64px; }
