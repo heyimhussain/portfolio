@@ -147,10 +147,10 @@
     const t = { x: 0, y: 0 }, c = { x: 0, y: 0 };
     let raf = 0;
     const tick = () => {
-      c.x += (t.x - c.x) * 0.12;
-      c.y += (t.y - c.y) * 0.12;
-      ship.style.setProperty("--ry", `${c.x * 36}deg`);
-      ship.style.setProperty("--rx", `${-c.y * 28}deg`);
+      c.x += (t.x - c.x) * 0.08;
+      c.y += (t.y - c.y) * 0.08;
+      ship.style.setProperty("--ry", `${c.x * 8}deg`);
+      ship.style.setProperty("--rx", `${-c.y * 6}deg`);
       raf = Math.abs(t.x - c.x) + Math.abs(t.y - c.y) > 0.001 ? requestAnimationFrame(tick) : 0;
     };
     const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
