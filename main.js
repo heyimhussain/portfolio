@@ -49,6 +49,8 @@
 
   // Highlight the pill button for the section in view
   const links = [...document.querySelectorAll(".pill a")];
+  const ind = document.querySelector(".pill-ind");
+  addEventListener("resize", () => spy());
   const targets = links.map((l) => document.querySelector(l.getAttribute("href")));
   const spy = () => {
     const y = window.innerHeight * 0.4;
@@ -56,9 +58,13 @@
     targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= y) cur = i; });
     if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) cur = links.length - 1;
     links.forEach((l, i) => l.classList.toggle("on", i === cur));
+    const on = links[cur];
+    ind.style.width = on.offsetWidth + "px";
+    ind.style.transform = `translateX(${on.offsetLeft}px)`;
   };
   window.addEventListener("scroll", spy, { passive: true });
   spy();
+  document.fonts?.ready.then(spy);
 
   // Living ASCII wave background, inspired by Atless:
   // glyphs ripple on their own and swell + glow teal around the cursor.
