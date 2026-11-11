@@ -47,7 +47,7 @@ i { font-style: normal; }
   transition: transform .25s, box-shadow .25s; z-index: 5;
   animation: drop .9s cubic-bezier(.2,.8,.2,1) both;
 }
-.t2 { --x: 74%; --y: 13%; --r: 3deg; } .t1 { --x: 66%; --y: 41.8%; --r: -3deg; } .t3 { --x: 74%; --y: 69%; --r: 2deg; }
+.t2 { --x: 74%; --y: 13%; --r: 3deg; } .t1 { --x: 66%; --y: 42.4%; --r: -3deg; } .t3 { --x: 74%; --y: 69%; --r: 2deg; }
 .t1 { animation-delay: .4s } .t2 { animation-delay: .5s } .t3 { animation-delay: .6s } .t4 { animation-delay: .7s }
 @keyframes drop { from { opacity: 0; translate: 0 -30px; } }
 .tile:hover { transform: rotate(0deg) scale(1.03); }
