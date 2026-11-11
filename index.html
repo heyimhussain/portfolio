@@ -12,12 +12,17 @@
 <body>
 
 <!-- ===== HERO: a draggable canvas (a nod to Atless) ===== -->
+<nav class="pill" aria-label="Sections">
+  <a href="#canvas">Home</a>
+  <a href="#about">About</a>
+  <a href="#work">Work</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#languages">Languages</a>
+  <a href="#contact">Contact</a>
+</nav>
+
 <section class="canvas" id="canvas">
-  <div class="hud mono">
-    <span>Hussain Shah Hashmi</span>
-    <span class="hide-sm">Drag the notes around</span>
-    <span id="coords">x 0, y 0</span>
-  </div>
 
   <h1 class="name">
     <span class="row">Hussain</span>
@@ -37,9 +42,6 @@
     <p class="stat">$450K+</p>
     <p>raised at the 2026 TCF Vancouver Gala</p>
   </div>
-  <div class="tile t4 note" data-drag>
-    <p class="mono">Based in Coquitlam, BC<br>Speaks English, Urdu, Hindi, Punjabi</p>
-  </div>
 </section>
 
 <!-- ===== TICKER ===== -->
@@ -50,7 +52,7 @@
 
 <main>
   <!-- ABOUT -->
-  <section class="about">
+  <section class="about" id="about">
     <p class="idx">About</p>
     <p class="statement">
       I build things that <i>feel</i> good to use — infinite canvases, real-time multiplayer games,
@@ -60,7 +62,7 @@
   </section>
 
   <!-- PROJECTS -->
-  <section>
+  <section id="work">
     <p class="idx">Selected work</p>
 
     <article class="project">
@@ -101,7 +103,7 @@
   </section>
 
   <!-- EXPERIENCE -->
-  <section>
+  <section id="experience">
     <p class="idx">Experience</p>
     <div class="jobs">
       <div class="job">
@@ -132,7 +134,7 @@
   </section>
 
   <!-- EDUCATION + SKILLS -->
-  <section class="split">
+  <section class="split" id="education">
     <div>
       <p class="idx">Education</p>
       <div class="edu">
@@ -150,23 +152,35 @@
     <div>
       <p class="idx">Toolkit</p>
       <dl class="kit">
-        <dt>Languages</dt><dd>Python, C/C++, Java, JavaScript, SQL, HTML</dd>
+        <dt>Code</dt><dd>Python, C/C++, Java, JavaScript, SQL, HTML</dd>
         <dt>Frameworks</dt><dd>React, Vite, Node.js, Tailwind CSS, PeerJS</dd>
         <dt>Tools</dt><dd>Git, Docker, Godot, Google AI Studio, VS Code</dd>
         <dt>People</dt><dd>Leadership, communication, initiative</dd>
       </dl>
     </div>
   </section>
+
+  <!-- SPOKEN LANGUAGES -->
+  <section id="languages">
+    <p class="idx">Languages</p>
+    <ul class="langs">
+      <li>English</li>
+      <li>Urdu</li>
+      <li>Hindi</li>
+      <li>Punjabi</li>
+    </ul>
+  </section>
 </main>
 
 <!-- CONTACT -->
-<footer class="contact">
+<footer class="contact" id="contact">
   <p class="idx">Say hi</p>
   <a class="mail" href="mailto:hussainshahhashmi5@gmail.com">hussainshahhashmi5<span>@gmail.com</span></a>
   <a class="mail sm" href="mailto:hsh7@sfu.ca">hsh7<span>@sfu.ca</span></a>
   <div class="socials mono">
     <a href="https://www.linkedin.com/in/hussainshahhashmi/" target="_blank" rel="noopener">LinkedIn ↗</a>
     <a href="https://github.com/heyimhussain" target="_blank" rel="noopener">GitHub ↗</a>
+    <span class="based">Based in Coquitlam, BC</span>
     <span>© 2026 Hussain Shah Hashmi</span>
   </div>
 </footer>

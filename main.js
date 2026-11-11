@@ -1,7 +1,6 @@
 (() => {
   // Draggable hero tiles
   const canvas = document.getElementById("canvas");
-  const coords = document.getElementById("coords");
   let z = 10;
 
   document.querySelectorAll("[data-drag]").forEach((tile) => {
@@ -28,8 +27,16 @@
     });
   });
 
-  canvas.addEventListener("pointermove", (e) => {
-    const c = canvas.getBoundingClientRect();
-    coords.textContent = `x ${Math.round(e.clientX - c.left)}, y ${Math.round(e.clientY - c.top)}`;
-  });
+  // Highlight the pill button for the section in view
+  const links = [...document.querySelectorAll(".pill a")];
+  const targets = links.map((l) => document.querySelector(l.getAttribute("href")));
+  const spy = () => {
+    const y = window.innerHeight * 0.4;
+    let cur = 0;
+    targets.forEach((t, i) => { if (t && t.getBoundingClientRect().top <= y) cur = i; });
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) cur = links.length - 1;
+    links.forEach((l, i) => l.classList.toggle("on", i === cur));
+  };
+  window.addEventListener("scroll", spy, { passive: true });
+  spy();
 })();
