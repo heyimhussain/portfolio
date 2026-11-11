@@ -297,7 +297,7 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 .p-head { position: relative; perspective: 900px; }
 .p-head h2 { position: relative; z-index: 1; }
 .p-ship {
-  position: absolute; z-index: 0; left: 22%; top: -200px; width: min(640px, 120%); height: auto; overflow: visible;
+  position: absolute; z-index: 0; left: 28%; top: -200px; width: min(640px, 120%); height: auto; overflow: visible;
   fill: var(--ink); opacity: .08; pointer-events: none;
   transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) rotateZ(-9deg);
   transition: opacity .5s;
