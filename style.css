@@ -84,7 +84,7 @@ main > section { padding: 110px 0; border-bottom: 1px solid var(--line); }
 .p-head { display: flex; flex-direction: column; gap: 10px; }
 .p-num { color: var(--muted); }
 .project h2 { font-size: clamp(56px, 9vw, 130px); line-height: .9; letter-spacing: -.04em; font-family: var(--display); font-weight: 500; transition: color .3s; }
-.p-badge { align-self: flex-start; border: 1px solid var(--teal); color: var(--teal); padding: 4px 10px; border-radius: 99px; }
+.p-badge { align-self: flex-start; margin-top: 26px; border: 1px solid var(--teal); color: var(--teal); padding: 4px 10px; border-radius: 99px; }
 .p-body { color: #b9b9b3; font-size: 17px; padding-top: 30px; max-width: 60ch; }
 .p-body ul { margin: 18px 0; display: grid; gap: 10px; }
 .p-body li { padding-left: 22px; position: relative; }
