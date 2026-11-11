@@ -141,7 +141,7 @@ main > section { padding: 110px 0; border-bottom: 1px solid var(--line); }
 .pill {
   position: fixed; top: 18px; left: 50%; transform: translateX(-50%); z-index: 1000;
   display: flex; gap: 2px; padding: 5px; border-radius: 999px;
-  background: rgba(24, 24, 24, .55); border: 1px solid rgba(255,255,255,.09);
+  background: rgba(18, 18, 18, .78); border: 1px solid rgba(255,255,255,.09);
   backdrop-filter: blur(16px) saturate(160%); -webkit-backdrop-filter: blur(16px) saturate(160%);
   box-shadow: 0 10px 40px -12px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.06);
   animation: pillIn .8s .2s cubic-bezier(.2,.8,.2,1) both;
@@ -250,23 +250,38 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 .logo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; padding: 4px; }
 .logo.sm img { padding: 3px; }
 
-/* ===== PROJECTS: light section ===== */
-#projects {
-  --pfg: #0b0b0b; --pmuted: #5c5c57; --pline: #d8d6cf; --pteal: #0f766e;
-  background: var(--ink); color: var(--pfg);
+/* ===== LIGHT BANDS (About, Experience) ===== */
+.light {
+  --lfg: #0b0b0b; --lmuted: #6b6b66; --lline: #d8d6cf; --lteal: #0f766e;
+  background: var(--ink); color: var(--lfg);
   box-shadow: 0 0 0 100vmax var(--ink); clip-path: inset(0 -100vmax);
-  border-bottom: 0;
+  border-bottom: 0 !important;
 }
-#projects .idx { color: var(--pteal); }
-#projects .project { border-top-color: var(--pline); }
-#projects .project h2, #projects .project h2 a { color: var(--pfg); }
-#projects .project h2 a:hover { color: var(--pteal); }
-#projects .p-badge { border-color: var(--pteal); color: var(--pteal); }
-#projects .p-body { color: #3a3a36; }
-#projects .p-body b { color: var(--pfg); }
-#projects .p-body li::before { color: var(--pteal); }
-#projects .stack { color: var(--pmuted); }
-#projects .link { color: var(--pteal); border-color: var(--pteal); }
-#projects .link:hover { color: var(--pfg); border-color: var(--pfg); }
-#projects .btn-live { background: var(--pfg); color: var(--ink); }
-#projects .btn-live:hover { background: var(--pteal); box-shadow: 0 10px 30px -12px var(--pteal); }
+.light .idx { color: var(--lteal); }
+.light b { color: var(--lfg); }
+.statement i { transition: color .3s; }
+.light .statement i { color: var(--lteal); }
+
+.light .board { background: #fff; border-color: var(--lline); }
+.light .board-list { border-color: var(--lline); }
+.light .jl { border-bottom-color: var(--lline); }
+.light .jl:hover { background: #f4f3ee; }
+.light .jl.on { background: #e8f3f1; border-left-color: var(--lteal); }
+.light .jl-role { color: var(--lteal); }
+.light .jl-co { color: var(--lfg); }
+.light .jl-loc, .light .jl-when, .light .jd-meta { color: var(--lmuted); }
+.light .jd-co, .light .jd h3, .light .jd h4 { color: var(--lfg); }
+.light .jd ul { color: #3a3a36; }
+.light .jd li::before { background: var(--lteal); }
+.light .jd-chips span { border-color: #c9c7bf; }
+.light .jd-chips span:first-child { border-color: var(--lteal); color: var(--lteal); }
+.light .jd-skills span { background: #efeee8; color: #2f2f2c; }
+.light .logo-dark { background: #f1f0ea; color: #111; border-color: #d0cec6; }
+.light .logo img { box-shadow: inset 0 0 0 1px #e2e0d9; }
+.light .board-list, .light .board-detail { scrollbar-color: #c9c7bf transparent; }
+.light .board-list::-webkit-scrollbar-thumb, .light .board-detail::-webkit-scrollbar-thumb { background: #c9c7bf; }
+@media (max-width: 800px) {
+  .light .jl { border-right-color: var(--lline); }
+  .light .jl.on { border-top-color: var(--lteal); }
+  .light .board-list { border-bottom-color: var(--lline); }
+}
