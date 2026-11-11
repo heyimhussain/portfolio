@@ -110,4 +110,33 @@
     }
   };
   requestAnimationFrame(draw);
+
+  // Languages: hover backspaces the English name, then types it in its own script
+  const seg = typeof Intl.Segmenter === "function" ? new Intl.Segmenter() : null;
+  const glyphs = (t) => (seg ? [...seg.segment(t)].map((g) => g.segment) : [...t]);
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+  document.querySelectorAll(".lw").forEach((el) => {
+    const roman = el.textContent, native = el.dataset.native;
+    if (native === roman) return;
+    let run = 0;
+    const morph = async (to) => {
+      const id = ++run;
+      el.classList.add("typing");
+      let cur = glyphs(el.textContent);
+      while (cur.length) {
+        cur.pop(); el.textContent = cur.join("");
+        await wait(55); if (id !== run) return;
+      }
+      await wait(160); if (id !== run) return;
+      const out = glyphs(to);
+      for (let i = 1; i <= out.length; i++) {
+        el.textContent = out.slice(0, i).join("");
+        await wait(90); if (id !== run) return;
+      }
+      el.classList.remove("typing");
+    };
+    const li = el.parentElement;
+    li.addEventListener("mouseenter", () => morph(native));
+    li.addEventListener("mouseleave", () => morph(roman));
+  });
 })();

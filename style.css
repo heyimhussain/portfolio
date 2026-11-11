@@ -157,7 +157,7 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 /* ===== SPOKEN LANGUAGES ===== */
 .langs { display: flex; flex-wrap: wrap; gap: 14px; }
 .langs li {
-  font-family: var(--display); font-weight: 500; font-size: clamp(20px, 2.4vw, 30px); letter-spacing: -.02em;
+  font-family: var(--display); font-weight: 500; font-size: 20px; letter-spacing: -.01em;
   padding: 10px 30px; border: 1px solid var(--line); border-radius: 999px; transition: border-color .25s, color .25s;
 }
 .langs li:hover { border-color: var(--teal); color: var(--teal); }
@@ -165,7 +165,6 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 @media (max-width: 800px) {
   .pill { top: auto; bottom: 14px; width: max-content; max-width: calc(100vw - 24px); overflow-x: auto; scrollbar-width: none; }
   .pill a { padding: 8px 12px; font-size: 13px; }
-  .langs li { padding: 6px 20px; }
 }
 
 /* ===== EXPERIENCE BOARD (job-search layout) ===== */
@@ -228,3 +227,11 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 .links { display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
 .btn-live { background: var(--teal); color: #032b27; font-weight: 500; padding: 10px 20px; border-radius: 999px; transition: transform .2s, box-shadow .2s; }
 .btn-live:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -10px var(--teal); }
+
+/* languages inside Toolkit */
+.kit-sub { font-family: var(--display); font-weight: 500; font-size: 20px; margin: 40px 0 16px; }
+.langs { gap: 10px; }
+.langs li { padding: 8px 20px; min-width: 112px; text-align: center; cursor: default; }
+.lw { display: inline-block; min-height: 1.3em; unicode-bidi: plaintext; }
+.lw.typing::after { content: ""; display: inline-block; width: 2px; height: 1em; margin-left: 2px; vertical-align: -0.12em; background: var(--teal); animation: caret .6s steps(1) infinite; }
+@keyframes caret { 50% { opacity: 0; } }
