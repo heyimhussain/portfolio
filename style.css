@@ -75,7 +75,7 @@ main { padding: 0 var(--pad); max-width: 1280px; margin: 0 auto; }
 main > section { padding: 110px 0; border-bottom: 1px solid var(--line); }
 .idx { font-family: var(--display); font-size: 30px; color: var(--teal); margin-bottom: 36px; }
 
-.statement { font-size: clamp(28px, 4.4vw, 60px); line-height: 1.08; letter-spacing: -.035em; font-weight: 500; max-width: 20ch; }
+.statement { font-size: clamp(24px, 3.2vw, 44px); line-height: 1.2; letter-spacing: -.015em; font-weight: 500; max-width: 30ch; }
 .statement i { color: var(--teal); }
 .hl-unused { background: linear-gradient(transparent 62%, var(--teal-dk) 62%); }
 
