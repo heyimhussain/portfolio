@@ -59,4 +59,49 @@
   };
   window.addEventListener("scroll", spy, { passive: true });
   spy();
+
+  // Living ASCII wave background, inspired by Atless:
+  // glyphs ripple on their own and swell + glow teal around the cursor.
+  const cv = canvas.querySelector(".waves");
+  const ctx = cv.getContext("2d");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const CH = ["·", "~", "≈", "∿", "≋"];
+  let cur = null, last = 0, W = 0, H = 0, D = 1, visible = true;
+  const size = () => {
+    D = Math.min(devicePixelRatio || 1, 2);
+    W = canvas.clientWidth; H = canvas.clientHeight;
+    cv.width = W * D; cv.height = H * D;
+  };
+  size(); addEventListener("resize", size);
+  canvas.addEventListener("pointermove", (e) => {
+    const r = canvas.getBoundingClientRect();
+    cur = { x: e.clientX - r.left, y: e.clientY - r.top };
+  });
+  canvas.addEventListener("pointerleave", () => { cur = null; });
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(canvas);
+  const draw = (now) => {
+    requestAnimationFrame(draw);
+    if (!visible || now - last < 66) return;
+    last = now;
+    ctx.setTransform(D, 0, 0, D, 0, 0);
+    ctx.clearRect(0, 0, W, H);
+    ctx.font = "12px ui-monospace, Menlo, monospace";
+    ctx.textAlign = "center"; ctx.textBaseline = "middle";
+    const t = still ? 0 : now / 1400, gap = 24;
+    for (let x = gap / 2; x < W; x += gap) {
+      for (let y = gap / 2; y < H; y += gap) {
+        let v = Math.sin(x * 0.05 + t) + Math.cos(y * 0.05 - t * 0.8);
+        let g = 0;
+        if (cur) {
+          const d = Math.hypot(x - cur.x, y - cur.y);
+          if (d < 240) { const b = 1 - d / 240; v += b * 3; g = b * b; }
+        }
+        const i = Math.max(0, Math.min(CH.length - 1, Math.floor(((v + 2) / 5.5) * CH.length)));
+        ctx.globalAlpha = Math.min(1, 0.1 + i * 0.03 + g * 0.75);
+        ctx.fillStyle = g > 0.02 ? "#2dd4bf" : "#ffffff";
+        ctx.fillText(CH[i], x, y);
+      }
+    }
+  };
+  requestAnimationFrame(draw);
 })();
