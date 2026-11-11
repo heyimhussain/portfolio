@@ -139,4 +139,23 @@
     li.addEventListener("mouseenter", () => morph(native));
     li.addEventListener("mouseleave", () => morph(roman));
   });
+
+  // Atless ship: 3D tilt following the cursor
+  document.querySelectorAll(".p-head").forEach((head) => {
+    const ship = head.querySelector(".p-ship");
+    if (!ship) return;
+    head.addEventListener("pointermove", (e) => {
+      const r = head.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      head.classList.add("tilting");
+      ship.style.setProperty("--ry", `${x * 40}deg`);
+      ship.style.setProperty("--rx", `${-y * 30}deg`);
+    });
+    head.addEventListener("pointerleave", () => {
+      head.classList.remove("tilting");
+      ship.style.setProperty("--ry", "0deg");
+      ship.style.setProperty("--rx", "0deg");
+    });
+  });
 })();

@@ -290,6 +290,14 @@ section[id], footer[id] { scroll-margin-top: 80px; }
 .p-title { display: inline-flex; align-items: flex-start; gap: .08em; }
 .p-arrow { font-size: .2em; margin-top: .45em; color: #fff; opacity: .85; transition: opacity .45s, transform .45s; }
 .p-title:hover .p-arrow { opacity: 1; transform: translate(4px, -4px); }
-.p-logo { display: inline-block; width: 64px; height: 64px; margin-bottom: 8px; border-radius: 16px; transition: transform .35s; }
-.p-logo img { width: 100%; height: 100%; display: block; }
-.p-logo:hover { transform: rotate(-6deg) scale(1.05); }
+
+/* translucent Atless ship behind the title, tilts in 3D with the cursor */
+.p-head { position: relative; perspective: 900px; }
+.p-head h2 { position: relative; z-index: 1; }
+.p-ship {
+  position: absolute; z-index: 0; left: 6%; top: -30%; width: min(360px, 70%); height: auto;
+  fill: var(--ink); opacity: .08; pointer-events: none;
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateZ(0);
+  transition: transform .5s cubic-bezier(.2,.8,.2,1), opacity .5s;
+}
+.p-head.tilting .p-ship { opacity: .16; transition: transform .12s linear, opacity .5s; }
